@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout external proj') {
             steps {
                 git branch: 'main',
-                    credentialsId: 'github_id'
+                    credentialsId: 'github_id',
                     url: 'ssh://git@github.com:Jordan-Tajheria/myproject.git'
 
                 sh "ls -lat"
