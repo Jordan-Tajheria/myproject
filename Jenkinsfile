@@ -2,7 +2,7 @@ pipeline {
     environment {
         registry = "jordantajheria/getting-started"
         registryCredential = 'dockerhub_id'
-        dockerImage = ''
+        dockerImage = 'latest'
     }
     agent any 
     stages {
