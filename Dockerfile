@@ -6,13 +6,9 @@ pipeline {
     }
     agent any 
     stages {
-        stage('Checkout external proj') {
+        stage('Cloning our git') {
             steps {
-                git branch: 'main',
-                    credentialsId: 'github_id',
-                    url: 'ssh://git@github.com:Jordan-Tajheria/myproject.git'
-
-                sh "ls -lat"
+                git 'https://github.com/Jordan-Tajheria/myproject.git'
             }
         }
         stage('Building our image') {
