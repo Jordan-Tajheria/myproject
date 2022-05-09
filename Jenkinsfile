@@ -10,7 +10,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     credentialsId: 'github_id',
-                    url: 'ssh://git@github.com:Jordan-Tajheria/myproject.git'
+                    url: 'https//git@github.com:Jordan-Tajheria/myproject.git'
 
                 sh "ls -lat"
             }
