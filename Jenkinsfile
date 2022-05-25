@@ -25,7 +25,7 @@ pipeline {
 		stage('Deploy Image') {
 			
 			steps {
-				sh 'docker push jordantajheria/nodeapp:latest'
+				sh 'docker push jordantajheria/nodeapptst:latest'
 			}
 		}
 
