@@ -29,6 +29,26 @@ pipeline {
 			}
 		}
 
+		stage('Deploy to K8s'){
+
+			steps{
+					sshagent(['k8s-jenkins'])
+					{
+							sh 'scp -r -o StrictHostChecking=no deployment.yaml Jordan@193.201.132.247:/path'
+
+							script{
+									try{
+											sh 'ssh Jordan@193.201.132.247 kubectl apply -f /path/deployment.yaml --kubeconfig=/path/kube.yaml'
+											
+									}catch(error)
+									{
+										echo('This is an error')
+									}
+							}
+					}
+			}
+		}
+
 		stage('Clean Up') {
 		
 			steps {
