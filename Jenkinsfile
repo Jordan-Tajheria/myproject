@@ -1,3 +1,4 @@
+def repo = "https://github.com/Jordan-Tajheria/myproject.git"
 pipeline {
 
 	agent any
@@ -32,7 +33,21 @@ pipeline {
 		stage('Clean Up') {
 		
 			steps {
-				echo "All Finish!"
+				echo "All Finish! Image deployed"
+			}
+		}
+
+		stage("Add Repo") {
+			
+			steps {
+				sh "helm repo add jordan ${repo}"
+			}
+		}
+
+		stage('Deploy Helm Chart') {
+
+			steps {
+				sh "helm upgrade --install my-helm jordan/sample --values dev/values.yaml -n dev --wait "
 			}
 		}
 	}
