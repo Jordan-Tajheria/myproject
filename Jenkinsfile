@@ -37,17 +37,17 @@ pipeline {
 			}
 		}
 
-		stage("Add Repo") {
+		stage("Create Helm Chart") {
 			
 			steps {
-				sh "helm repo add jordan ${repo}"
+				sh "helm create buildachart"
 			}
 		}
 
 		stage('Deploy Helm Chart') {
 
 			steps {
-				sh "helm upgrade --install my-helm jordan/sample --values dev/values.yaml -n dev --wait "
+				sh "helm upgrade --install buildachart/ --values buildachart/values.yaml "
 			}
 		}
 	}
