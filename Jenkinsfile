@@ -47,7 +47,7 @@ pipeline {
 		stage('Deploy Helm Chart') {
 
 			steps {
-				sh "helm install buildachart"
+				sh "helm install --dry-run --debug ./buildachart"
 			}
 		}
 	}
