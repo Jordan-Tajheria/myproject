@@ -54,7 +54,7 @@ pipeline {
 		stage("Deploying Helm") {
 
 			steps {
-				sh "helm upgrade --install myhelm-1653562001  myhelm/ --values default/values.yaml"
+				sh "helm install apple  buildachart"
 			}
 		}
 	}
