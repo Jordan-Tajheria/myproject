@@ -53,7 +53,7 @@ pipeline {
 		stage('Helm upgrade') {
 
 			steps {
-				sh "helm upgrade -f apple ./buildachart --dry-run --debug --set repository=jordantajheria/nodeapptst"
+				sh "helm upgrade myhelm-1653562001 myhelm"
 			}
 		}
 	}
