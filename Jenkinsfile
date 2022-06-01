@@ -50,13 +50,6 @@ pipeline {
 			}
 		}
 
-		stage('Deploying Helm') {
-
-			steps {
-				sh "helm install apple  buildachart"
-			}
-		}
-
 		stage('Helm upgrade') {
 
 			steps {
