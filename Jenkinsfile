@@ -47,7 +47,7 @@ pipeline {
 		stage('Deploy Helm Chart') {
 
 			steps {
-				sh "helm install buildachart/ --values buildachart/values.yaml "
+				sh "helm install buildachart"
 			}
 		}
 	}
