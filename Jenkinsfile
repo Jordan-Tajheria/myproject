@@ -1,4 +1,3 @@
-def repo = "https://github.com/Jordan-Tajheria/myproject.git"
 pipeline {
 
 	agent any
@@ -51,10 +50,17 @@ pipeline {
 			}
 		}
 
-		stage("Deploying Helm") {
+		stage('Deploying Helm') {
 
 			steps {
 				sh "helm install apple  buildachart"
+			}
+		}
+
+		stage('Helm upgrade') {
+
+			steps {
+				sh "helm install apple ./buildachart --dry-run --debug --set repository=jordantajheria/nodeapptst"
 			}
 		}
 	}
