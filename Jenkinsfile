@@ -44,10 +44,17 @@ pipeline {
 			}
 		}
 
-		stage('Deploy Helm Chart') {
+		stage('Checking info for Helm') {
 
 			steps {
 				sh "helm ls"
+			}
+		}
+
+		stage("Deploying Helm") {
+
+			steps {
+				sh "helm upgrade --install myhelm-1653562001  myhelm/ --values default/values.yaml"
 			}
 		}
 	}
