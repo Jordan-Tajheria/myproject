@@ -1,3 +1,5 @@
+@Library('pipeline-library-demo')_
+
 pipeline {
 
 	agent any
@@ -55,6 +57,11 @@ pipeline {
 			steps {
 				sh "helm upgrade myhelm-1653562001 myhelm"
 			}
+		}
+
+		stage('Shared Library Demo') {
+			echo 'Hello World'
+			sayHello 'Jordan'
 		}
 	}
 
