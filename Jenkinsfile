@@ -60,8 +60,11 @@ pipeline {
 		}
 
 		stage('Shared Library Demo') {
-			echo 'Hello World'
-			sayHello 'Jordan'
+
+			steps {
+				echo 'Hello World'
+				sh sayHello 'Jordan'
+			}
 		}
 	}
 
