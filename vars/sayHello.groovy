@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def helloWorld(String name = 'human') {
+def helloWorld(String name) {
     echo "Hello, ${name}."
 }
 
