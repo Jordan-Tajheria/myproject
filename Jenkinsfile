@@ -63,8 +63,10 @@ pipeline {
 
 			steps {
 				echo 'Hello World'
-				sayHello.helloWorld('Jordan')
-				sayHello.helmCreate("apple", "fruit")
+				script {
+					sayHello.helloWorld('Jordan')
+					sayHello.helmCreate("apple", "fruit")
+				}
 			}
 		}
 	}
