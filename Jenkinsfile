@@ -65,7 +65,10 @@ pipeline {
 				echo 'Hello World'
 				sayHello 'Jordan'
                 hailmary()
-                helmcreate('apple', 'fruits')
+                script {
+                  helmcreate('apple', 'fruits')  
+                }
+                //helmcreate('apple', 'fruits')
 			}
 		}
 	}
