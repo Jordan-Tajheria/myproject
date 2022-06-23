@@ -63,7 +63,7 @@ pipeline {
 
 			steps {
 				echo 'Hello World'
-				sayHello()
+				sayHello
 			}
 		}
 	}
