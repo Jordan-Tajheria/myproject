@@ -2,5 +2,5 @@
 
 stage('demo') {
 	echo "hello jordan lets create a helm chart"
-	sayHello.helmCreate('apple')
+	sayHello('apple')
 }
