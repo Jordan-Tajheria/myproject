@@ -63,9 +63,7 @@ pipeline {
 
 			steps {
 				echo 'Hello World'
-				script {
-					sayHello("apple", "fruit")
-				}
+				sayHello("apple", "fruit")
 			}
 		}
 	}
