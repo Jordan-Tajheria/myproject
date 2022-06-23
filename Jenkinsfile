@@ -1,8 +1,7 @@
 @Library('pipeline-library-demo')_
 
-
-stage('IDGAF') {
-	sayHello('miguel')
-	helmCreate('orange')
+stage('Demo') {
+    echo 'Hello World'
+    sayHello 'Jordan'
+    daysofweek 'Thursday'
 }
-
