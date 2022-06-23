@@ -64,7 +64,7 @@ pipeline {
 			steps {
 				echo 'Hello World'
 				sayHello 'Jordan'
-                hailmary
+                hailmary()
                 helmcreate'apple'
 			}
 		}
