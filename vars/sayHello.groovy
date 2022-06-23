@@ -14,5 +14,5 @@ def call(String helmchartName, String releaseName) {
 */
 
 def call(){
-    sh "echo I REALLY, REALLY, REALLY NEED THIS TO WORK."
+    sh "echo I REALLY, REALLY, REALLY NEED THIS TO WORK. :D"
 }
