@@ -1,16 +1,6 @@
 @Library('pipeline-library-demo')_
 
-pipeline {
-
-	agent any
-
-	stages {
-		stage('Shared Library Demo') {
-
-			steps {
-				echo 'Hello World'
-				sayHello()
-			}
-		}
-	}
+stage('demo') {
+	echo "hello jordan lets create a helm chart"
+	sayHello.helmCreate('apple')
 }

@@ -1,5 +1,6 @@
 #!/usr/bin/env groovy
 
-def call() {
-    echo "This is a test!!!!!!!!!!!!!!!!!gitx"
+def helmCreate(String name, String release) {
+    sh "helm create ${name}"
+    sh "ls ${name}"
 }
