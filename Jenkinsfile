@@ -2,6 +2,7 @@
 
 
 stage('IDGAF') {
+	sayHello('miguel')
 	helmCreate('orange')
 }
 
