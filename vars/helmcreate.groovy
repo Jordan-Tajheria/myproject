@@ -17,32 +17,27 @@ def call(config) {
         parameters {
             String(name: 'chartName', description: 'name of helmchart to be created e.g. buildachart')
         }
+		stages {
 
-		agent any {
-        
-			stages {
-
-				stage('Stage ONE') {
+			stage('Stage ONE') {
 				
-					steps {
-						echo "Checking pipeline has started working currently"
-					}
+				steps {
+					echo "Checking pipeline has started working currently"
 				}
+			}
 
-				stage("Stage TWO - Create Helm Chart") {
-				
-					steps {
-						sh "helm create ${params.chartName}"
-					}
-				}   
-
-				stage('Stage THREE - Checking info for Helm') {
-
-					steps {
-						sh "helm ls"
-					}
+			stage("Stage TWO - Create Helm Chart") {
+		
+				steps {
+					sh "helm create ${params.chartName}"
 				}
+			}   
 
+			stage('Stage THREE - Checking info for Helm') {
+
+				steps {
+					sh "helm ls"
+				}
 			}
 		}
     }
