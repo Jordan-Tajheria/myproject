@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def call (config) {
+def call(config) {
 
     /*
 	def jenkinsCredentials = config.get('jenkinsCredentials', "jenkinsPAT")
@@ -13,32 +13,37 @@ def call (config) {
 		// credentialsId: jenkinsCredentials])
 
     pipeline {
+
         parameters {
             String(name: 'chartName', description: 'name of helmchart to be created e.g. buildachart')
         }
-        stages {
 
-            stage('Stage ONE') {
-            
-			    steps {
-				    echo "Checking pipeline has started working currently"
-			    }
-		    }
+		agent any {
+        
+			stages {
 
-		    stage("Stage TWO - Create Helm Chart") {
-			
-			    steps {
-				    sh "helm create ${params.chartName}"
-			    }
-		    }   
+				stage('Stage ONE') {
+				
+					steps {
+						echo "Checking pipeline has started working currently"
+					}
+				}
 
-		    stage('Stage THREE - Checking info for Helm') {
+				stage("Stage TWO - Create Helm Chart") {
+				
+					steps {
+						sh "helm create ${params.chartName}"
+					}
+				}   
 
-			    steps {
-				    sh "helm ls"
-			    }
-		    }
+				stage('Stage THREE - Checking info for Helm') {
 
-        }
+					steps {
+						sh "helm ls"
+					}
+				}
+
+			}
+		}
     }
 }
