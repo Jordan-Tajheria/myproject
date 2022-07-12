@@ -19,9 +19,7 @@ def call(config) {
         }
 
 		stage("Stage TWO - Create Helm Chart") {
-			step {
-				sh "helm create ${params.chartName}"
-			}
+			sh "helm create ${params.chartName}"
 		}   
     }
 }
