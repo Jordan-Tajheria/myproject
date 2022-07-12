@@ -62,10 +62,7 @@ pipeline {
 		stage('Shared Library Demo') {
 
 			steps {
-				echo 'Hello World'
-				sayHello 'Jordan'
-                hailmary()
-                helmcreate('apple', 'fruits')  
+                helmcreate('pumpkin', 'vegetables')  
                 //helmcreate('apple', 'fruits')
 			}
 		}
