@@ -2,13 +2,15 @@
 
 def call (config) {
 
-    def jenkinsCredentials = config.get('jenkinsCredentials', "jenkinsPAT")
+    /*
+	def jenkinsCredentials = config.get('jenkinsCredentials', "jenkinsPAT")
     //  Some nested methods using enkins creds can look this up
     env.JENKINS_CREDS = jenkinsCredentials
+	*/
 
     library identifier: 'pipeline-library-demo@12.07', retriever: modernSCM([$class: 'GitSCMSource',
-		remote: 'https://github.com/Jordan-Tajheria/myproject',
-		credentialsId: jenkinsCredentials])
+		remote: 'https://github.com/Jordan-Tajheria/myproject'])
+		// credentialsId: jenkinsCredentials])
 
     pipeline {
         parameters {

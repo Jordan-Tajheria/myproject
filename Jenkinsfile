@@ -1,8 +1,8 @@
-def jenkinsCredentials = 'jenkinsPAT'
+// def jenkinsCredentials = 'jenkinsPAT'
 
-library identifier: 'pipeline-library-demo@12.07', retriever: modernSCM([$class: 'GitSCMSource',
-		remote: 'https://github.com/Jordan-Tajheria/myproject',
-		credentialsId: jenkinsCredentials])
+library identifier: 'myproject@12.07', retriever: modernSCM([$class: 'GitSCMSource',
+		remote: 'https://github.com/Jordan-Tajheria/myproject.git'])
+		// credentialsId: jenkinsCredentials])
 
 def config = [
 	/* Default to specific branch
@@ -11,7 +11,7 @@ def config = [
 	*/
 	releaseBranch: "12.07",
 	// e.g. releaseFileList: ["helm-charts/*/*.yaml"] - can leave empty
-	releaseFileList: [],
-	jenkinsCredentials: jenkinsCredentials
+	releaseFileList: []
+	//jenkinsCredentials: jenkinsCredentials
 ]
-helmcreate(config)
+helmcreate(config) 
