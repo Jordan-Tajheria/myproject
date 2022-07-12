@@ -9,7 +9,7 @@ def config = [
 		in this case 12.07
 		however after repo gets cleaned it will be 'main'
 	*/
-	releaseBranch: "12.07"
+	releaseBranch: "12.07",
 	// e.g. releaseFileList: ["helm-charts/*/*.yaml"] - can leave empty
 	releaseFileList: [],
 	jenkinsCredentials: jenkinsCredentials
