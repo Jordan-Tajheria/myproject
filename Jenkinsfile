@@ -11,7 +11,7 @@ def config = [
 	*/
 	releaseBranch: "12.07"
 	// e.g. releaseFileList: ["helm-charts/*/*.yaml"] - can leave empty
-	releaseFileList: [].
+	releaseFileList: [],
 	jenkinsCredentials: jenkinsCredentials
 ]
 helmcreate(config)
