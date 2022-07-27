@@ -2,7 +2,7 @@
 node{
 
 	stage('IDGAF') {
-		withEnv(["DISABLE_AUTH=true"]) {
+		withEnv(["DISABLE_AUTH=credentials('dockerhub-id')"]) {
 			echo env.DISABLE_AUTH   }
 	}
 
