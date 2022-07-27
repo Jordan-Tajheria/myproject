@@ -2,8 +2,8 @@
 node{
 
 	stage('IDGAF') {
-		withEnv(["DISABLE_AUTH"=credentials('dockerhub-id')]) {
-			echo env.DISABLE_AUTH   }
+		withEnv(["DISABLE_AUTHS"=credentials('dockerhub-id')]) {
+			echo env.DISABLE_AUTHS   }
 	}
 
 	// Jenkins lib
