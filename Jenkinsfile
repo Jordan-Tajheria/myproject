@@ -18,7 +18,8 @@ node{
 		sh 'docker build -t jordantajheria/nodeapptst:latest .'
 	}
 	stage('Login') {
-		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u -p $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+		withEnv([DOCKERHUB_CREDENTIALS=credentials('dockerhub-id')])
+		sh 'echo $env.DOCKERHUB_CREDENTIALS_PSW | docker login -u $env.DOCKERHUB_CREDENTIALS_USR --password-stdin'
 	}
 	stage('Deploy Image') {
 		sh 'docker push jordantajheria/nodeapptst:latest'
