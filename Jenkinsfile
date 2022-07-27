@@ -1,5 +1,11 @@
 // Jenkinsfile
 node{
+
+	stage('IDGAF') {
+		withEnv(["DISABLE_AUTH=true"]) {
+			echo env.DISABLE_AUTH   }
+	}
+
 	// Jenkins lib
 	library (
 		identifier: 'first-lib@main', // unique name of your shared lib and branch/tag specifier 
