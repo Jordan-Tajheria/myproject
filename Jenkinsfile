@@ -54,7 +54,7 @@ pipeline {
 		stage("Deploying Helm") {
 
 			steps {
-				sh "helm upgrade --install apple apple/"
+				sh "helm upgrade --install apple apple /"
 			}
 		}
 	}
