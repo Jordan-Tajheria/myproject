@@ -1,4 +1,3 @@
-def repo = "https://github.com/Jordan-Tajheria/myproject.git"
 pipeline {
 
 	agent any
