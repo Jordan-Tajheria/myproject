@@ -50,6 +50,13 @@ pipeline {
 				helloWorld("Hey there Jordan")
 			}
 		}
+
+		stage("helm create stage") {
+			steps {
+				echo "This is also a test"
+				helmCreate('Star')
+			}
+		}
 	}
 
 	post {
