@@ -13,6 +13,7 @@ node{
         DOCKERHUB_CREDENTIALS=credentials('dockerhub-id')
     }
 
+	//THIS IS A TEST
 	//pipeline stages
 	stage('Build') {
 		sh 'docker build -t jordantajheria/nodeapptst:latest .'
