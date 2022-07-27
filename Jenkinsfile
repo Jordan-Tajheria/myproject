@@ -36,27 +36,6 @@ pipeline {
 				echo "All Finish! Image deployed"
 			}
 		}
-
-		stage("Create Helm Chart") {
-			
-			steps {
-				sh "helm create buildachart"
-			}
-		}
-
-		stage('Checking info for Helm') {
-
-			steps {
-				sh "helm ls"
-			}
-		}
-
-		stage("Deploying Helm") {
-
-			steps {
-				sh "helm upgrade --install apple apple /"
-			}
-		}
 	}
 
 	post {
