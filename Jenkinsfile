@@ -1,17 +1,47 @@
 // def jenkinsCredentials = 'jenkinsPAT'
 
-library identifier: 'myproject@12.07', retriever: modernSCM([$class: 'GitSCMSource',
-		remote: 'https://github.com/Jordan-Tajheria/myproject.git'])
-		// credentialsId: jenkinsCredentials])
+pipeline {
 
-def config = [
-	/* Default to specific branch
-		in this case 12.07
-		however after repo gets cleaned it will be 'main'
-	*/
-	releaseBranch: "12.07",
-	// e.g. releaseFileList: ["helm-charts/*/*.yaml"] - can leave empty
-	releaseFileList: []
-	//jenkinsCredentials: jenkinsCredentials
-]
-helmcreate(config) 
+	agent any
+	
+	environment {
+        DOCKERHUB_CREDENTIALS=credentials('dockerhub-id')
+    }
+	
+	stages {
+
+		stage('Build') {
+		
+			steps {
+				sh 'docker build -t jordantajheria/nodeapptst:latest .'
+			}
+		}
+	
+		stage('Login') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+		
+		stage('Deploy Image') {
+			
+			steps {
+				sh 'docker push jordantajheria/nodeapptst:latest'
+			}
+		}
+
+		stage('Clean Up') {
+		
+			steps {
+				echo "All Finish! Image deployed"
+			}
+		}
+
+		post {
+			always {
+				sh 'docker logout'
+			}
+		}
+	}
+}
