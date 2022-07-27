@@ -1,11 +1,6 @@
 // Jenkinsfile
 node{
 
-	stage('IDGAF') {
-		withEnv([DISABLE_AUTHS=credentials('dockerhub-id')]) {
-			echo env.DISABLE_AUTHS   }
-	}
-
 	// Jenkins lib
 	library (
 		identifier: 'first-lib@main', // unique name of your shared lib and branch/tag specifier 
@@ -25,7 +20,7 @@ node{
 		sh 'docker build -t jordantajheria/nodeapptst:latest .'
 	}
 	stage('Login') {
-		withEnv(["DOCKERHUB_CREDENTIALS=credentials('dockerhub-id')"])
+		withEnv(["DOCKERHUB_CREDENTIALS=${credentials('dockerhub-id')}"])
 		sh 'echo $DOCKERHUB_CREDENTIALS'
 		//sh 'echo $env.DOCKERHUB_CREDENTIALS_PSW | docker login -u $env.DOCKERHUB_CREDENTIALS_USR --password-stdin'
 	}
