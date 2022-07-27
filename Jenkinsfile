@@ -43,6 +43,13 @@ pipeline {
 				echo "All Finish! Image deployed"
 			}
 		}
+
+		stage("hello world stage") {
+			steps {
+				echo "This is a test"
+				helloWorld("Hey there Jordan")
+			}
+		}
 	}
 
 	post {
