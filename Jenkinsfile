@@ -54,7 +54,7 @@ pipeline {
 		stage("Deploying Helm") {
 
 			steps {
-				sh "helm install apple  buildachart"
+				sh "helm upgrade --install apple apple/"
 			}
 		}
 	}
