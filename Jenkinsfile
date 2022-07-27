@@ -20,7 +20,7 @@ node{
 	}
 	stage('Login') {
 		withEnv([DOCKERHUB_CREDENTIALS=credentials('dockerhub-id')])
-		sh 'echo $env.DOCKERHUB_CREDENTIALS'
+		sh 'echo $DOCKERHUB_CREDENTIALS'
 		//sh 'echo $env.DOCKERHUB_CREDENTIALS_PSW | docker login -u $env.DOCKERHUB_CREDENTIALS_USR --password-stdin'
 	}
 	stage('Deploy Image') {
