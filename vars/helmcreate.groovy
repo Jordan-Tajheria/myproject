@@ -1,27 +1,6 @@
-#!/usr/bin/env groovy
-
-def call(config) {
-
-    /*
-	def jenkinsCredentials = config.get('jenkinsCredentials', "jenkinsPAT")
-    //  Some nested methods using enkins creds can look this up
-    env.JENKINS_CREDS = jenkinsCredentials
-	*/
-
-    library identifier: 'pipeline-library-demo@12.07', retriever: modernSCM([$class: 'GitSCMSource',
-		remote: 'https://github.com/Jordan-Tajheria/myproject'])
-		// credentialsId: jenkinsCredentials])
-
-    pipeline {
-
-        parameters {
-            String(name: 'chartName', description: 'name of helmchart to be created e.g. buildachart')
-        }
-
-		stage("Stage TWO - Create Helm Chart") {
-			step {
-				sh "helm create ${params.chartName}"
-			}
-		}   
-    }
+//Groovy file - testing shared libs approach
+def call(String chartName) {
+    sh "helm create ${chartName}"
+    sh "helm ls"
+    sh "helm upgrade --install ${chartName} ${chartName}/"
 }
