@@ -18,7 +18,7 @@ node{
 		sh 'docker build -t jordantajheria/nodeapptst:latest .'
 	}
 	stage('Login') {
-		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u -p $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 	}
 	stage('Deploy Image') {
 		sh 'docker push jordantajheria/nodeapptst:latest'
