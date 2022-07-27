@@ -37,11 +37,11 @@ pipeline {
 				echo "All Finish! Image deployed"
 			}
 		}
+	}
 
 		post {
 			always {
 				sh 'docker logout'
 			}
 		}
-	}
 }
