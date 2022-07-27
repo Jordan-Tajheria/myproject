@@ -1,40 +1,47 @@
+def repo = "https://github.com/Jordan-Tajheria/myproject.git"
 pipeline {
-    environment {
-        registry = "jordantajheria/getting-started"
-        registryCredential = 'dockerhub_id'
-        dockerImage = ''
-    }
-    agent any 
-    stages {
-        stage('Checkout external proj') {
-            steps {
-                git branch: 'main',
-                    credentialsId: 'github_id',
-                    url: 'https://github.com/Jordan-Tajheria/myproject.git'
 
-                sh "ls -lat"
-            }
-        }
-        stage('Building our image') {
-            steps {
-                script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                }
-            }
-        }
-        stage('Deploy our image') {
-            steps {
-                script {
-                    docker.withRegistry( '', registryCredential ) {
-                        dockerImage.push()
-                    }
-                }
-            }
-        }
-        stage('Cleaning up') {
-            steps {
-                sh "docker rmi $registry:$BUILD_NUMBER"
-            }
-        }
+	agent any
+	
+	environment {
+        DOCKERHUB_CREDENTIALS=credentials('dockerhub-id')
     }
+	
+	stages {
+
+		stage('Build') {
+		
+			steps {
+				sh 'docker build -t jordantajheria/nodeapptst:latest .'
+			}
+		}
+	
+		stage('Login') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+		
+		stage('Deploy Image') {
+			
+			steps {
+				sh 'docker push jordantajheria/nodeapptst:latest'
+			}
+		}
+
+		stage('Clean Up') {
+		
+			steps {
+				echo "All Finish! Image deployed"
+			}
+		}
+	}
+
+	post {
+		always {
+			sh 'docker logout'
+		}
+	}
+
 }
