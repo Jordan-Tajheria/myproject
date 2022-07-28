@@ -1,6 +1,6 @@
 //shared lib
 library (
-		identifier: 'first-lib@main', // unique name of your shared lib and branch/tag specifier 
+		identifier: 'secondLib-lib@JULY-05', // unique name of your shared lib and branch/tag specifier 
 		retriever: modernSCM([$class: 'GitSCMSource',
 		remote: 'https://github.com/Jordan-Tajheria/myproject.git'
 		])
