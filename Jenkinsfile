@@ -1,8 +1,8 @@
 //shared lib
 library (
-		identifier: 'secondLib-lib@JULY-05', // unique name of your shared lib and branch/tag specifier 
+		identifier: 'first-lib@main', // unique name of your shared lib and branch/tag specifier 
 		retriever: modernSCM([$class: 'GitSCMSource',
-		remote: 'https://github.com/Jordan-Tajheria/myproject.git'
+		remote: 'https://github.com/Jordan-Tajheria/example.git'
 		])
 )
 
@@ -16,7 +16,7 @@ pipeline {
 	
 	stages {
 
-		stage('Build !') {
+		stage('Build') {
 		
 			steps {
 				sh 'docker build -t jordantajheria/nodeapptst:latest .'
@@ -47,14 +47,14 @@ pipeline {
 		stage("hello world stage") {
 			steps {
 				echo "This is a test"
-				helloWorld('Hey there Jordan')
+				helloWorld("Hey there Jordan")
 			}
 		}
 
 		stage("helm create stage") {
 			steps {
 				echo "This is also a test"
-				helmCreate('star')
+				helmCreate('pear')
 			}
 		}
 	}
