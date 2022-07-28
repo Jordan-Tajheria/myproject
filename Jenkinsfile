@@ -2,7 +2,7 @@
 library (
 		identifier: 'first-lib@main', // unique name of your shared lib and branch/tag specifier 
 		retriever: modernSCM([$class: 'GitSCMSource',
-		remote: 'https://github.com/Jordan-Tajheria/example.git'
+		remote: 'https://github.com/Jordan-Tajheria/myproject.git'
 		])
 )
 
