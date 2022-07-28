@@ -16,7 +16,7 @@ pipeline {
 	
 	stages {
 
-		stage('Build') {
+		stage('Build !') {
 		
 			steps {
 				sh 'docker build -t jordantajheria/nodeapptst:latest .'
