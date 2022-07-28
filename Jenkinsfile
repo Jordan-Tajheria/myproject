@@ -16,42 +16,42 @@ pipeline {
 	
 	stages {
 
-		stage('Build') {
+		stage('STAGE ONE - Build Docker Image') {
 		
 			steps {
 				sh 'docker build -t jordantajheria/nodeapptst:latest .'
 			}
 		}
 	
-		stage('Login') {
+		stage('STAGE TWO - Login to DockerHub') {
 
 			steps {
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 			}
 		}
 		
-		stage('Deploy Image') {
+		stage('STAGE Three - Deploy Image') {
 			
 			steps {
 				sh 'docker push jordantajheria/nodeapptst:latest'
 			}
 		}
 
-		stage('Clean Up') {
+		stage('STAGE FOUR - Clean Up') {
 		
 			steps {
 				echo "All Finish! Image deployed"
 			}
 		}
 
-		stage("hello world stage") {
+		stage('STAGE FIVE - Test function') {
 			steps {
 				echo "This is a test"
 				helloWorld("Hey there Jordan")
 			}
 		}
 
-		stage("helm create stage") {
+		stage('STAGE SIX - Helm Create and Helm Install') {
 			steps {
 				echo "This is also a test"
 				helmCreate('pear')
