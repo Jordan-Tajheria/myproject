@@ -6,6 +6,9 @@ library (
 		])
 )
 
+helloWorldFunction()
+
+/*
 pipeline {
 
 	agent any
@@ -66,3 +69,4 @@ pipeline {
 	}
 
 }
+*/
