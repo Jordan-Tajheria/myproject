@@ -6,7 +6,7 @@ library (
 		])
 )
 
-helloWorldFunction()
+helloWorldFunction("This is a test")
 
 /*
 pipeline {
