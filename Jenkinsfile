@@ -7,7 +7,8 @@ library (
 )
 
 //helloWorldFunction("Hello Jordan")
-helmCreate("america")
+//helmCreate("america")
+dockerCreate("jordantajheria/nodeapptst:latest")
 
 /*
 pipeline {
